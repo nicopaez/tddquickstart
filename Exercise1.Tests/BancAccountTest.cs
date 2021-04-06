@@ -1,6 +1,7 @@
 using System;
 using NUnit.Framework;
 using Exercise1;
+using Moq;
 
 namespace Exercise1.Tests
 {
@@ -44,10 +45,12 @@ namespace Exercise1.Tests
             Assert.Throws<BalanceExceededException>(() => backAccount.Withdraw(10));
         }
 
-        [Test, Ignore("Temporal while we work on customer")]
+        [Test, Ignore("Temporal")]
         public void dog()
         {
-            this.customer.Block();
+            var customerMockery = new Mock<Customer>();
+            customerMockery.Setup(c => c.IsBlocked).Returns((true));
+            this.backAccount = new BackAccount(customerMockery.Object);
             Assert.Throws<InvalidOperationException>(() => backAccount.Withdraw(10));
         }
     }

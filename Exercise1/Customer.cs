@@ -4,6 +4,10 @@ namespace Exercise1
 {
     public class Customer
     {
+        public Customer()
+        {
+            
+        }
         public Customer(string customerName)
         {
             this.IsBlocked = false;
@@ -14,6 +18,6 @@ namespace Exercise1
             this.IsBlocked = true;
         }
 
-        public bool IsBlocked { get; protected set; }
+        public virtual bool IsBlocked { get; protected set; }
     }
 }
