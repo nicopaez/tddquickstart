@@ -45,8 +45,8 @@ namespace Exercise1.Tests
             Assert.Throws<BalanceExceededException>(() => backAccount.Withdraw(10));
         }
 
-        [Test, Ignore("Temporal")]
-        public void dog()
+        [Test]
+        public void WithdrawThrowsExceptionIfCustomerIsBlocked()
         {
             var customerMockery = new Mock<Customer>();
             customerMockery.Setup(c => c.IsBlocked).Returns((true));
