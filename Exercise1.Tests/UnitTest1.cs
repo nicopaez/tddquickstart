@@ -35,5 +35,11 @@ namespace Exercise1.Tests
 
             Assert.That(backAccount.Balance, Is.EqualTo(90));
         }
+
+        [Test]
+        public void WithdrawThrowsExeptionWhenAmountIsGreaterThanBalance()
+        {
+            Assert.Throws<BalanceExceededException>(() => backAccount.Withdraw(10));
+        }
     }
 }

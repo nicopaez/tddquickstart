@@ -16,6 +16,11 @@ namespace Exercise1
 
         public void Withdraw(int amount)
         {
+            if(amount > Balance)
+            {
+                throw new BalanceExceededException();
+            }
+
             Balance -= 10;
         }
     }
