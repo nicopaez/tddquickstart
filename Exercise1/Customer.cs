@@ -11,7 +11,7 @@ namespace Exercise1
 
         public void Block()
         {
-
+            this.IsBlocked = true;
         }
 
         public bool IsBlocked { get; protected set; }

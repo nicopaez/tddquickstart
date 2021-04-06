@@ -11,5 +11,14 @@ namespace Exercise1.Tests
             var customer = new Customer("john");
             Assert.That(customer.IsBlocked, Is.False);
         }
+
+        [Test]
+        public void BlockSetCustomerToBlocked()
+        {
+            var customer = new Customer("john");
+            customer.Block();
+            Assert.That(customer.IsBlocked, Is.True);
+        }
+        
     }
 }
