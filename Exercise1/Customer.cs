@@ -6,7 +6,14 @@ namespace Exercise1
     {
         public Customer(string customerName)
         {
+            this.IsBlocked = false;
+        }
+
+        public void Block()
+        {
 
         }
+
+        public bool IsBlocked { get; protected set; }
     }
 }

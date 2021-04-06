@@ -1,16 +1,18 @@
+using System;
 using NUnit.Framework;
 using Exercise1;
 
 namespace Exercise1.Tests
 {
-    public class Tests
+    public class BancAccountTest
     {
         private BackAccount backAccount;
+        private Customer customer;
 
         [SetUp]
         public void SetUp()
         {
-            var customer = new Customer("John");
+            this.customer = new Customer("John");
             this.backAccount = new BackAccount(customer);   
         }
         
@@ -40,6 +42,13 @@ namespace Exercise1.Tests
         public void WithdrawThrowsExeptionWhenAmountIsGreaterThanBalance()
         {
             Assert.Throws<BalanceExceededException>(() => backAccount.Withdraw(10));
+        }
+
+        [Test, Ignore("Temporal while we work on customer")]
+        public void dog()
+        {
+            this.customer.Block();
+            Assert.Throws<InvalidOperationException>(() => backAccount.Withdraw(10));
         }
     }
 }
