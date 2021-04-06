@@ -17,5 +17,17 @@ namespace Exercise1.Tests
             // assert
             Assert.That(backAccount.Balance, Is.EqualTo((0)));
         }
+
+        [Test]
+        public void CreditIncrementsBalanceToCorrectAmount()
+        {
+            var customer = new Customer("John");
+            
+            var backAccount = new BackAccount(customer);
+
+            backAccount.AddCredit(100);
+
+            Assert.That(backAccount.Balance, Is.EqualTo(100));
+        }
     }
 }

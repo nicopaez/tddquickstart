@@ -8,5 +8,10 @@ namespace Exercise1
         }
 
         public int Balance { get; protected set; }
+
+        public void AddCredit(int amount)
+        {
+            Balance += amount;
+        }
     }
 }
