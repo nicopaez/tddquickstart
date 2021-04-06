@@ -13,5 +13,10 @@ namespace Exercise1
         {
             Balance += amount;
         }
+
+        public void Withdraw(int amount)
+        {
+            Balance -= 10;
+        }
     }
 }

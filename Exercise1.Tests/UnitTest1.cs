@@ -5,29 +5,35 @@ namespace Exercise1.Tests
 {
     public class Tests
     {
+        private BackAccount backAccount;
+
+        [SetUp]
+        public void SetUp()
+        {
+            var customer = new Customer("John");
+            this.backAccount = new BackAccount(customer);   
+        }
+        
         [Test]
         public void BankAccountIsCreatedWithBalanceZero()
         {
-            // Arrange
-            var customer = new Customer("John");
-            
-            // act
-            var backAccount = new BackAccount(customer);
-            
-            // assert
             Assert.That(backAccount.Balance, Is.EqualTo((0)));
         }
 
         [Test]
         public void CreditIncrementsBalanceToCorrectAmount()
         {
-            var customer = new Customer("John");
-            
-            var backAccount = new BackAccount(customer);
-
             backAccount.AddCredit(100);
-
             Assert.That(backAccount.Balance, Is.EqualTo(100));
+        }
+        
+        [Test]
+        public void WithdrawDecrementsBalanceWhenAmountIsLessThanBalance()
+        {
+            backAccount.AddCredit(100);
+            backAccount.Withdraw(10);
+
+            Assert.That(backAccount.Balance, Is.EqualTo(90));
         }
     }
 }
